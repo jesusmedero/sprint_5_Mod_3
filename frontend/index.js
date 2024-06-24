@@ -96,8 +96,8 @@ function moduleProject3() {
     companyNameP.textContent = footerData.companyName
 
     let addressP = document.createElement('p')
-    companyNameP.classList.add('address')
-    companyNameP.textContent = footerData.address
+    addressP.classList.add('address')
+    addressP.textContent = footerData.address
 
     let contactEmailP = document.createElement('p')
     contactEmailP.classList.add('contact-email')
@@ -111,7 +111,7 @@ function moduleProject3() {
     socialMediaDiv.classList.add('social-media')
 
     for (let platform in footerData.socialMedia) {
-      let socialMediaLink = document.childElement('a')
+      let socialMediaLink = document.createElement('a')
       socialMediaLink.href = footerData.socialMedia[platform]
       socialMediaLink.textContent = platform.charAt(0).toUpperCase() + platform.slice(1)
       socialMediaDiv.appendChild(socialMediaLink)
@@ -143,6 +143,12 @@ function moduleProject3() {
   // 👉 TASK 4 - Clicking on the section should deactivate the active card
 
   //  ✨ do your magic here
+  document.addEventListener('click', evt => {
+    if (evt.target === document.querySelector('section'))  {
+      const learners = document.querySelectorAll('.learner-card')
+      learners.forEach(card => card.classList.remove('active'))
+    }
+  })
 }
 
 // ❗ DO NOT CHANGE THIS CODE
